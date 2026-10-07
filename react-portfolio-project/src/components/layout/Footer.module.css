@@ -1,0 +1,90 @@
+.footer{
+    margin: 1rem 0.3rem 0.2rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    text-align: center;
+}
+
+.copyright{
+    font-size: var(--font-size-h6);
+}
+
+.footerRight{
+    display: flex;
+    gap: 1rem;
+    align-items: flex-end;
+    justify-content: space-evenly;
+    margin: 1rem 0.3rem 0 0.3rem;
+}
+
+.backToTop {
+  color: #10368d;
+  font-weight: 500;
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+
+.backToTop:hover {
+  color: #d4af37;
+}
+
+.github{
+    color: black;
+}
+
+.github:hover{
+    color: rgba(0, 0, 0, 0.777);
+}
+
+.linkedIn{
+    color: #0A66C2;
+}
+
+.linkedIn:hover{
+    color: #0a66c2c5;
+}
+
+@media (min-width: 640px){
+     .footer{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: flex-end;
+    }
+
+    .footerRight{
+    display: flex;
+    gap: 1rem;
+    align-items: flex-end;
+    }
+}
+
+@media (min-width: 768px){
+    .footer{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: flex-end;
+    }
+
+    .footerRight{
+    display: flex;
+    gap: 1rem;
+    align-items: flex-end;
+    }
+}
+
+@media (min-width: 1024px){
+    .footer{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: flex-end;
+    }}
+
+    .footerRight{
+    display: flex;
+    gap: 1rem;
+    align-items: flex-end;
+    }

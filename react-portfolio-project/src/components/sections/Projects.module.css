@@ -1,0 +1,44 @@
+.projectsSection{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 1rem;
+}
+
+.projectsTitle{
+    background: linear-gradient(90deg, #2583F7, #D65CFF);
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.buttonWrapper{
+    display: flex;
+    gap: 5px;
+    margin: 0.5rem 0;
+}
+
+.categoryButton{
+    margin: 0 0.25rem 0.5rem;
+    background: none;
+    border: none;
+}
+
+.categoryButton:hover{
+    background: linear-gradient(90deg, #2584f727, #d65cff19);;
+    border-radius: 5px;
+}
+
+.projectsWrapper{
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 2rem;
+}
+
+@media (min-width: 768px){
+
+}
+
+@media (min-width: 1024px){
+    
+}

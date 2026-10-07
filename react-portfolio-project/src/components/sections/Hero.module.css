@@ -1,0 +1,208 @@
+.heroSection{
+    margin: 120px 20px 40px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.projectTitle {
+  font-size: var(--font-size-h4);
+  background-image:
+    linear-gradient(
+      105deg,
+      transparent 42%,
+      rgba(255, 255, 255, 0.8) 50%,
+      transparent 58%
+    ),
+    linear-gradient(90deg, #0b1f4d, #d4af37);
+
+  background-size: 250% 100%, 100% 100%;
+  background-position: -150% 0, 0 0;
+  background-repeat: no-repeat;
+
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+  animation: shine 4s ease infinite;
+}
+
+@keyframes shine {
+  from {
+    background-position: 150% 0, 0 0;
+  }
+
+  to {
+    background-position: -150% 0, 0 0;
+  }
+}
+
+
+.elevatorPitch{
+    margin: 15px;
+    max-width: 70ch;
+    font-size: 17px;
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
+    line-height: 1.45;
+    text-align: center;
+}
+
+.actionButtonSection{
+    margin: 30px 0;
+    display: flex;
+    justify-content: space-evenly;
+}
+
+.projectsButton{
+    margin: 10px;
+    border-radius: var(--radius-md);
+    width: 130px;
+    height: 50px;
+    font-size: var(--font-size-base);
+    background: linear-gradient(
+  180deg,
+  #3545ff 0%,
+  #91a7ee 100%
+);
+    color: white;
+    border: none;
+}
+
+.projectsButton:hover{
+    background: linear-gradient(
+  180deg,
+  #1426f5 0%,
+  #7591f1 100%
+);
+}
+
+.projectsButton:focus-visible{
+    background: linear-gradient(
+  180deg,
+  #1426f5 0%,
+  #7591f1 100%
+);
+}
+
+.contactButton{
+    margin: 10px;
+    border-radius: var(--radius-md);
+    width: 130px;
+    height: 50px;
+    font-size: var(--font-size-base);
+    background: linear-gradient(
+  180deg,
+  #3593ff 0%,
+  #91a7ee 100%
+);
+    color: white;
+    border: none;
+}
+
+.contactButton:hover{
+    background: linear-gradient(
+  180deg,
+  #1e85fb 0%,
+  #7694f8 100%
+);
+}
+
+.contactButton:focus-visible{
+    background: linear-gradient(
+  180deg,
+  #1e85fb 0%,
+  #7694f8 100%
+);
+}
+
+.resumeDownload{
+    text-decoration: none;
+}
+
+.resumeDownload:hover{
+    color: rgb(2, 2, 164);
+}
+
+.resumeDownload:focus-visible{
+    color: rgb(2, 2, 164);
+}
+
+.resumeDownloaded{
+    text-decoration: none;
+    color: #22c55e;
+}
+
+.resumeDownloaded:hover{
+    color: #22c55eae;
+}
+
+.resumeDownloaded:focus-visible{
+    color: #22c55eae;
+}
+
+.checkmark {
+  color: #22c55e;
+  width: 18px;
+  height: 18px;
+}
+
+.imageWrapper{
+  display: flex;
+  justify-content: flex-end;
+}
+
+.heroImage {
+    width: 350px;
+    height: 300px;
+    object-fit: cover;
+    border-radius: var(--radius-md);
+    box-shadow: 0 8px 24px rgba(15, 23, 42, 0.15);
+}
+
+@media (min-width: 768px){
+  .elevatorPitch{
+    margin: 30px;
+    max-width: 70ch;
+    font-size: var(--font-size-base);
+  }
+
+  .projectTitle{
+    font-size: var(--font-size-h1);
+  }
+  .projectsButton{
+    width: 200px;
+    height: 50px;
+    font-size: var(--font-size-h5);
+  }
+
+  .contactButton{
+    width: 200px;
+    height: 50px;
+    font-size: var(--font-size-h5);
+  }
+}
+
+@media (min-width: 1024px){
+  .elevatorPitch{
+    margin: 30px;
+    max-width: 70ch;
+    font-size: var(--font-size-base);
+  }
+
+  .projectTitle{
+    font-size: var(--font-size-h1);
+  }
+
+  .projectsButton{
+    width: 200px;
+    height: 50px;
+    font-size: var(--font-size-h5);
+  }
+
+  .contactButton{
+    width: 200px;
+    height: 50px;
+    font-size: var(--font-size-h5);
+  }
+}

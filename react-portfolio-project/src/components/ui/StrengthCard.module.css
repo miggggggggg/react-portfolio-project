@@ -1,0 +1,51 @@
+.strengthCard{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    background-color: white;
+    box-shadow: 0 6px 18px rgba(15, 23, 42, 0.12);
+    border: 1px solid rgba(76, 110, 245, 0.25);
+    width: 7rem;
+    height: 6rem;
+    margin: 1rem;
+    background: linear-gradient(135deg, #f4f8ff, #f6f0ff);
+    color: #182944;
+}
+
+.strengthCard:hover {
+    border-color: #4c6ef546;
+}
+
+.strength{
+    font-size: var(--font-size-h6);
+}
+
+@media (min-width: 500px) {
+    .strengthCard{
+    width: 10rem;
+    height: 8rem;
+    margin: 1.2rem;
+    }
+}
+
+@media (min-width: 768px){
+    .strengthCard{
+    width: 15rem;
+    height: 9rem;
+    margin: 1.2rem;
+    }
+}
+
+@media (min-width: 1024px){
+    .strengthCard{
+    width: 20rem;
+    height: 10rem;
+    margin: 2rem;
+    }
+
+    .strength{
+        font-size: var(--font-size-h5);
+    }
+}

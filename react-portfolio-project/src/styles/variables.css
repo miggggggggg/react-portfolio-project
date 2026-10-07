@@ -1,0 +1,28 @@
+:root{
+    --color-bg: black;
+    --color-surface: white;
+    --color-primary: rgba(115, 0, 255, 0.547);
+    --color-primary-hover: rgb(0, 0, 157);
+    --color-text-main: white;
+    --color-text-muted: lightgray;
+    --color-border: darkgray;
+    --space-xs: 4px;
+    --space-sm: 8px;
+    --space-md: 16px;
+    --space-lg: 24px;
+    --space-xl: 32px;
+    --space-2xl: 48px;
+    --font-main: ;
+    --font-mono: ;
+    --font-size-base: 20px;
+    --font-size-h1: 50px;
+    --font-size-h2: 40px;
+    --font-size-h3: 35px;
+    --font-size-h4: 30px;
+    --font-size-h5: 25px;
+    --font-size-h6: 15px;
+    --radius-sm: 4px;
+    --radius-md: 8px;
+    --transition-fast: 150ms;
+    --transition-normal: 300ms;
+}

@@ -1,0 +1,77 @@
+.navbar {
+  position: fixed;
+  top: 0;
+  right: 0;
+  left: 0;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  padding: 1rem 1rem;
+  z-index: 1000;
+
+  background: #FAF8F1;
+  border-bottom: 1px solid #e5e5e5;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.12);
+  backdrop-filter: blur(8px);
+}
+
+.heroLink {
+  text-decoration: none;
+  margin: 0 10px 0 0;
+  font-size: 1rem;
+}
+
+.navbar h1 a{
+  text-decoration: none;
+}
+
+.navbarRight {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.navbarRight a {
+  text-decoration: none;
+  font-size: 0.75rem;
+}
+
+.heroLink{
+  background: linear-gradient(90deg, #0b1f4d, #d4af37);
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.heroLink:hover{
+  background: linear-gradient(90deg, #0b1f4d9f, #d4af379f);
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+@media (min-width: 768px){
+.navbar h1 a{
+  font-size: 1.25rem;
+  margin: 0;
+  padding: 0;
+}
+
+.navbar a{
+  font-size: 0.9rem;
+}
+}
+
+@media (min-width: 1024px) {
+.navbar h1 a{
+  font-size: 1.5rem;
+  margin: 0;
+  padding: 0;
+}
+
+.navbar a{
+  font-size: 1rem;
+}
+}
