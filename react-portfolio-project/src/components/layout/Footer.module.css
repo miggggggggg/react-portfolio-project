@@ -73,6 +73,12 @@
     gap: 1rem;
     align-items: flex-end;
     }
+
+    .backToTop{
+        position: relative;
+        bottom: 0;
+        right: 9%;
+    }
 }
 
 @media (min-width: 1024px){
@@ -81,10 +87,17 @@
     flex-direction: row;
     justify-content: space-between;
     align-items: flex-end;
-    }}
+    }
 
     .footerRight{
     display: flex;
     gap: 1rem;
     align-items: flex-end;
     }
+
+    .backToTop{
+        position: relative;
+        bottom: 0;
+        right: 7%;
+    }
+}

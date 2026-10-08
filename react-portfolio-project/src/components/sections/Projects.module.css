@@ -10,6 +10,7 @@
     background-clip: text;
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
+    
 }
 
 .buttonWrapper{
@@ -36,9 +37,13 @@
 }
 
 @media (min-width: 768px){
-
+    .projectsTitle{
+        font-size: var(--font-size-h2);
+    }
 }
 
 @media (min-width: 1024px){
-    
+    .projectsTitle{
+        font-size: var(--font-size-h2);
+    }
 }

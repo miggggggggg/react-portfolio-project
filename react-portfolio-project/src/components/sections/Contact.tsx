@@ -49,6 +49,7 @@ function Contact() {
               pattern=".*\s+.*"
               className={styles.contactInput}
               required
+              disabled={submitted}
             />
             <label className={styles.contactLabel}>Email Address</label>
             <input
@@ -70,6 +71,7 @@ function Contact() {
               }}
               className={styles.contactInput}
               required
+              disabled={submitted}
             />
             <label className={styles.contactLabel}>Subject</label>
             <input
@@ -78,6 +80,7 @@ function Contact() {
               placeholder="Subject..."
               className={styles.contactInput}
               required
+              disabled={submitted}
             />
             <label className={styles.contactLabel}>Message</label>
             <textarea
@@ -86,6 +89,7 @@ function Contact() {
               className={`${styles.contactInput} ${styles.messageInput}`}
               minLength={15}
               required
+              disabled={submitted}
             />
           </div>
           {submitted ? (

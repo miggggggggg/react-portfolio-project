@@ -9,7 +9,7 @@ function Footer() {
           TypeScript
         </p>
         <a className={styles.backToTop} href="#hero">
-          Go back to top
+          Go Back to Top
           <svg
             xmlns="http://www.w3.org/2000/svg"
             width="16"

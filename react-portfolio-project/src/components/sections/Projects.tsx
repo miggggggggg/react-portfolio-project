@@ -29,7 +29,7 @@ function Projects() {
       imageAlt: "A placeholder image for a future project",
       title: "Javascript Project",
       description: "Javascript project",
-      techTags: "idk idk idk",
+      techTags: "placeholder placeholder placeholder`",
       demoLink: "https://google.com",
       repolink: "https://google.com",
       category: "Javascript",

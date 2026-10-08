@@ -35,7 +35,14 @@
 }
 
 @media (min-width: 768px){
+    .projectTitle{
+    font-size: var(--font-size-h4);
+}
 
+    .thumbnailImage{
+        height: 180px;
+        width: 320px;
+    }
 }
 
 @media (min-width: 1024px){
