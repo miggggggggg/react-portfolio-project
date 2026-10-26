@@ -4,6 +4,7 @@
     flex-direction: column;
     justify-content: space-between;
     text-align: center;
+    color: var(--color-text-muted);
 }
 
 .copyright{
@@ -19,22 +20,22 @@
 }
 
 .backToTop {
-  color: #10368d;
+  color: var(--color-primary);
   font-weight: 500;
   text-decoration: none;
   transition: color 0.2s ease;
 }
 
 .backToTop:hover {
-  color: #d4af37;
+  color: #ffa600d0;
 }
 
 .github{
-    color: black;
+    color: #F0F0F0;
 }
 
 .github:hover{
-    color: rgba(0, 0, 0, 0.777);
+    color: #f0f0f0d0;
 }
 
 .linkedIn{

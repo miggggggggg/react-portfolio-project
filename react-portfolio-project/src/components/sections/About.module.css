@@ -5,7 +5,7 @@
 }
 
 .aboutTitle{
-  background: linear-gradient(90deg, #2583F7, #D65CFF);
+  background: var(--color-heading);
   background-clip: text;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
@@ -20,7 +20,7 @@
 
 .strengthsTitle{
     margin: 0.5rem 0;
-    color: #2e415e;
+    color: #e99649;
     font-size: var(--font-size-h5);
 }
 

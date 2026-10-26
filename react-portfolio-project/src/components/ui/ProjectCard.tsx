@@ -1,38 +1,38 @@
-import type { ProjectCardData } from "../../data/projects";
+import type { ProjectItem } from "../../data/projects";
 import styles from "./ProjectCard.module.css";
 
 function ProjectCard({
+  title,
   thumbnailImage,
   imageAlt,
-  title,
   description,
   techTags,
-  demoLink,
-  repolink,
-}: ProjectCardData) {
+  demoUrl,
+  repoUrl,
+}: ProjectItem) {
   return (
     <div className={styles.projectCard}>
       <h4 className={styles.projectTitle}>{title}</h4>
       <img
-        className={styles.thumbnailImage}
         src={thumbnailImage}
         alt={imageAlt}
+        className={styles.thumbnailImage}
       />
       <p>{description}</p>
-      <p>{techTags}</p>
+      <p className={styles.techTags}>{techTags}</p>
       <div className={styles.linkWrapper}>
         <a
           className={styles.bottomLink}
           target="_blank"
           rel="noopener noreferrer"
-          href={demoLink}
+          href={demoUrl}
         >
           Live Demo
         </a>
         <a
           target="_blank"
           rel="noopener noreferrer"
-          href={repolink}
+          href={repoUrl}
           className={styles.bottomLink}
         >
           Github Repo

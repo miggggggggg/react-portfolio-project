@@ -6,7 +6,7 @@
 }
 
 .contactTitle{
-    background: linear-gradient(90deg, #2583F7, #D65CFF);
+    background: var(--color-heading);
     background-clip: text;
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
@@ -21,7 +21,7 @@
 }
 
 .contactLabel{
-   color: #000a1a;
+   color: #D4D4D4;
    font-weight: 400;
    font-size: 13px;
    opacity: 60%;
@@ -32,10 +32,10 @@
     height: 30px;
     padding: 0.65rem 0.75rem;
 
-    background-color: #ffffff;
-    color: #182944;
+    background-color: #354765;
+    color: var(--color-text-main);
 
-    border: 1px solid #cbd5e1;
+    border: 1px solid #263483;
     border-radius: 6px;
 
     font-size: 1rem;
@@ -46,12 +46,12 @@
 
 .contactInput:focus {
     outline: none;
-    border-color: #6d7cff;
+    border-color: #FFB347;
     box-shadow: 0 0 0 3px rgba(109, 124, 255, 0.15);
 }
 
 .contactInput::placeholder {
-    color: #64748b;
+    color: var(--color-accent);
     opacity: 1;
 }
 
@@ -64,7 +64,7 @@
     margin: 0.5rem 0;
     width: 15rem;
     height: 2rem;
-    background: linear-gradient(90deg, #2cc2f9, #7b6ff2);
+    background: var(--color-hero);
     color: white;
     border: none;
     border-radius: 5px;
@@ -73,7 +73,7 @@
 }
 
 .submitBtn:hover{
-    background: linear-gradient(90deg, #2cc2f9c9, #7a6ff2d3);
+    background: var(--color-hero-hover);
     cursor: pointer;
 }
 
@@ -86,9 +86,38 @@
     font-size: var(--font-size-base);
 }
 
+.beforeEmail{
+    color: var(--color-text-muted);
+}
+
 .email{
     text-decoration: none;
-    
+    color: var(--color-primary);
+}
+
+.email:hover{
+    color: #ffa600c9;
+    transition: color 0.5s ease;
+}
+
+.errorMessage {
+  color: #ff9999;
+  font-size: 0.875rem;
+  margin-top: 0.75rem;
+  text-align: center;
+  animation: fadeIn 0.25s ease-in-out;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(4px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
 @media (min-width: 768px){

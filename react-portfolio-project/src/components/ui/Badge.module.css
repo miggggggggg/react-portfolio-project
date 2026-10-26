@@ -10,9 +10,9 @@
     gap: 0.5rem;
     box-shadow: 0 8px 24px rgba(15, 23, 42, 0.12);
     border-radius: 5px;
-    background: linear-gradient(135deg, #f8fbff, #faf7ff);
+    background: var(--color-surface);
     border: 1px solid rgba(76, 110, 245, 0.2);
-    color: #182944;
+    color: var(--color-text-main);
 }
 
 .skillTitle{
@@ -22,6 +22,7 @@
 .skillDescription{
     font-size: 14px;
     line-height: 14px;
+    color: var(--color-text-muted);
 }
 
 @media (min-width: 576px){

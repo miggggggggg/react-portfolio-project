@@ -4,24 +4,31 @@ import { useState, type FormEvent } from "react";
 function Contact() {
   const loadingStyle = {
     cursor: "not-allowed",
-    background: "linear-gradient(90deg, #2cc2f98f, #7a6ff29c)",
+    background: "linear-gradient(135deg, #ff8c00bd, #cc5500b2)",
   };
   const [submitted, setSubmitted] = useState(false);
   const [loading, setLoading] = useState(false);
+  const [errorMessage, setErrorMessage] = useState("");
 
   async function onSubmit(e: FormEvent<HTMLFormElement>) {
-    e.preventDefault();
-    setLoading(true);
-    const response = await fetch("https://formspree.io/f/mvgrdglz", {
-      method: "POST",
-      body: new FormData(e.currentTarget),
-      headers: { Accept: "application/json" },
-    });
+    try {
+      e.preventDefault();
+      setLoading(true);
+      const response = await fetch("https://formspree.io/f/mvgrdglz", {
+        method: "POST",
+        body: new FormData(e.currentTarget),
+        headers: { Accept: "application/json" },
+      });
 
-    if (response.ok) {
-      setSubmitted(true);
-    } else {
-      console.log("hey");
+      if (response.ok) {
+        setSubmitted(true);
+      } else {
+        setErrorMessage("Submission failed. Please email me directly.");
+      }
+    } catch {
+      setErrorMessage("Network error. Please try again later.");
+    } finally {
+      setLoading(false);
     }
   }
 
@@ -31,8 +38,11 @@ function Contact() {
         <h2 className={styles.contactTitle}>Get in Touch</h2>
         <form method="POST" onSubmit={onSubmit}>
           <div className={styles.formSection}>
-            <label className={styles.contactLabel}>Full Name</label>
+            <label className={styles.contactLabel} htmlFor="name">
+              Full Name
+            </label>
             <input
+              id="name"
               name="name"
               placeholder="Full name..."
               type="text"
@@ -51,8 +61,11 @@ function Contact() {
               required
               disabled={submitted}
             />
-            <label className={styles.contactLabel}>Email Address</label>
+            <label className={styles.contactLabel} htmlFor="email">
+              Email Address
+            </label>
             <input
+              id="email"
               name="email"
               placeholder="Email address..."
               type="email"
@@ -73,8 +86,11 @@ function Contact() {
               required
               disabled={submitted}
             />
-            <label className={styles.contactLabel}>Subject</label>
+            <label className={styles.contactLabel} htmlFor="subject">
+              Subject
+            </label>
             <input
+              id="subject"
               name="subject"
               type="text"
               placeholder="Subject..."
@@ -82,8 +98,11 @@ function Contact() {
               required
               disabled={submitted}
             />
-            <label className={styles.contactLabel}>Message</label>
+            <label className={styles.contactLabel} htmlFor="message">
+              Message
+            </label>
             <textarea
+              id="message"
               name="message"
               placeholder="Message..."
               className={`${styles.contactInput} ${styles.messageInput}`}
@@ -108,7 +127,7 @@ function Contact() {
             </button>
           )}
         </form>
-        <p>
+        <p className={styles.beforeEmail}>
           Or,{" "}
           <a
             target="_blank"
@@ -119,6 +138,9 @@ function Contact() {
             Email Me
           </a>
         </p>
+        {errorMessage != "" ? (
+          <p className={styles.errorMessage}>{errorMessage}</p>
+        ) : undefined}
       </div>
     </section>
   );

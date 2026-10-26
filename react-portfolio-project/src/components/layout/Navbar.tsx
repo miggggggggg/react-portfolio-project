@@ -3,9 +3,9 @@ import styles from "./Navbar.module.css";
 function Navbar() {
   return (
     <nav className={styles.navbar}>
-      <h1 className={styles.heroLink}>
+      <span className={styles.heroLink}>
         <a href="#hero">Miguel Baldacchino</a>
-      </h1>
+      </span>
 
       <div className={styles.navbarRight}>
         <a href="#about">About</a>

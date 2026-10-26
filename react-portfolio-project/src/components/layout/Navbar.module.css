@@ -11,20 +11,29 @@
   padding: 1rem 1rem;
   z-index: 1000;
 
-  background: #FAF8F1;
-  border-bottom: 1px solid #e5e5e5;
+  background: #00000000;
+  border-bottom: 1px solid #ff910057;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.12);
   backdrop-filter: blur(8px);
 }
 
 .heroLink {
+  background: linear-gradient(135deg, #ffae00, #a54704);
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
   text-decoration: none;
   margin: 0 10px 0 0;
   font-size: 1rem;
+  font-weight: bold;
 }
 
-.navbar h1 a{
+.navbar span a{
   text-decoration: none;
+}
+
+.navbar span a:hover{
+  transition: color 0.5s ease;
 }
 
 .navbarRight {
@@ -34,26 +43,24 @@
 }
 
 .navbarRight a {
+  color: var(--color-primary);
   text-decoration: none;
   font-size: 0.75rem;
 }
 
-.heroLink{
-  background: linear-gradient(90deg, #0b1f4d, #d4af37);
-  background-clip: text;
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
+.navbarRight a:hover{
+  color: var(--color-primary-hover);
 }
 
 .heroLink:hover{
-  background: linear-gradient(90deg, #0b1f4d9f, #d4af379f);
+  background: linear-gradient(135deg, #ffae00bd, #a54704b7);
   background-clip: text;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 }
 
 @media (min-width: 768px){
-.navbar h1 a{
+.navbar span a{
   font-size: 1.25rem;
   margin: 0;
   padding: 0;
@@ -65,7 +72,7 @@
 }
 
 @media (min-width: 1024px) {
-.navbar h1 a{
+.navbar span a{
   font-size: 1.5rem;
   margin: 0;
   padding: 0;

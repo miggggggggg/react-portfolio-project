@@ -1,10 +1,10 @@
 import styles from "./Badge.module.css";
-import type { BadgeData } from "../../data/skills";
+import type { SkillsItem } from "../../data/skills";
 
-function Badge({ title, description }: BadgeData) {
+function Badge({ title, description }: SkillsItem) {
   return (
     <div className={styles.badge}>
-      <h5 className={styles.skillTitle}>{title}</h5>
+      <h4 className={styles.skillTitle}>{title}</h4>
       <p className={styles.skillDescription}>{description}</p>
     </div>
   );
