@@ -8,7 +8,37 @@ function Hero() {
     <section id="hero">
       <header>
         <div className={styles.heroSection}>
-          <h1 className={styles.projectTitle}>Miguel Baldacchino</h1>
+          <div className={styles.fadeIn}>
+            <p className={styles.role}>
+              FRONT-END DEVELOPMENT · REACT · TYPESCRIPT
+            </p>
+            <h1 className={styles.projectTitle}>Miguel Baldacchino</h1>
+          </div>
+          <div className={styles.qualityWrapper}>
+            <div className={styles.qualityContainer}>
+              <p>Problem-solving</p>
+            </div>
+            <div className={styles.qualityContainer}>
+              <p>Creative styling</p>
+            </div>
+          </div>
+          <div className={styles.qualityWrapper}>
+            <div className={styles.qualityContainerInvert}>
+              <p>High performance</p>
+            </div>
+            <div className={styles.qualityContainerInvert}>
+              <p>Accessibility</p>
+            </div>
+          </div>
+          <p className={styles.quote}>
+            I design front-end experiences that <em>make a difference.</em>
+          </p>
+          <button
+            className={styles.contactButton}
+            onClick={() => document.getElementById("contact")?.scrollIntoView()}
+          >
+            Let's Talk
+          </button>
           <p className={styles.elevatorPitch}>
             I'm a frontend developer focused on writing clean, maintainable code
             and building polished user experiences with React. I use TypeScript
@@ -56,24 +86,6 @@ function Hero() {
               )}
             </a>
           </p>
-          <div className={styles.actionButtonSection}>
-            <button
-              className={styles.projectsButton}
-              onClick={() =>
-                document.getElementById("projects")?.scrollIntoView()
-              }
-            >
-              View Projects
-            </button>
-            <button
-              className={styles.contactButton}
-              onClick={() =>
-                document.getElementById("contact")?.scrollIntoView()
-              }
-            >
-              Contact Me
-            </button>
-          </div>
         </div>
       </header>
     </section>

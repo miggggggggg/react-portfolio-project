@@ -1,3 +1,5 @@
+{
+  /*
 import styles from "./Projects.module.css";
 import ProjectCard from "../ui/ProjectCard";
 import type { ProjectItem } from "../../data/projects";
@@ -67,3 +69,5 @@ function Projects() {
 }
 
 export default Projects;
+*/
+}

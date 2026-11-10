@@ -1,16 +1,16 @@
 import styles from "./Navbar.module.css";
+import { Link } from "react-router";
 
 function Navbar() {
   return (
     <nav className={styles.navbar}>
       <span className={styles.heroLink}>
-        <a href="#hero">Miguel Baldacchino</a>
+        <Link to="/">Miguel Baldacchino</Link>
       </span>
 
       <div className={styles.navbarRight}>
-        <a href="#about">About</a>
-        <a href="#skills">Skills</a>
-        <a href="#projects">Projects</a>
+        <Link to="/">Home</Link>
+        <Link to="/about">About</Link>
         <a href="#contact">Contact</a>
       </div>
     </nav>

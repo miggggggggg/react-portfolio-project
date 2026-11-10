@@ -1,8 +1,9 @@
 .contactSection{
     margin: 2rem 0 0;
+    padding: 100px;
     display: flex;
-    flex-direction: column;
     align-items: center;
+    justify-content: space-evenly;
 }
 
 .contactTitle{
@@ -11,6 +12,49 @@
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     font-size: var(--font-size-h4);
+    margin-bottom: 25px;
+}
+
+.availabilityContainer{
+    display: flex;
+    align-items: center;
+    background: #161616;
+    border-radius: 15px;
+    padding: 5px 15px;
+    width: fit-content;
+    margin-bottom: 10px;
+    box-shadow: 0 0 15px #03b80342;
+}
+
+.greenCircle{
+    width: 10px;
+    height: 10px;
+    background-color: #03b803;
+    border-radius: 50%;
+    margin-right: 5px;
+}
+
+.belowTitle{
+    max-width: 50ch;
+    font-size: var(--font-size-base);
+    line-height: 35px;
+    color: var(--color-text-muted);
+}
+
+.sectionRight{
+    background: #242424;
+    border-radius: 15px;
+    border: 1px solid #ffa6002f;
+    padding: var(--space-md);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.sectionRight:hover{
+    border: 1px solid #ffa6005d;
+    transform: translateY(-3px);
+    transition: transform 0.2s ease-in-out, border 0.2s ease-in-out;
 }
 
 .formSection{
@@ -41,13 +85,18 @@
     font-size: 1rem;
     font-family: inherit;
 
-    transition: border-color 0.2s ease, box-shadow 0.2s ease;
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.contactInput:hover{
+    border-color: #ffb247ad;
+    box-shadow: 0 0 5px #ffb247c5;
 }
 
 .contactInput:focus {
     outline: none;
     border-color: #FFB347;
-    box-shadow: 0 0 0 3px rgba(109, 124, 255, 0.15);
+    box-shadow: 0 0 5px #FFB347;
 }
 
 .contactInput::placeholder {

@@ -35,112 +35,125 @@ function Contact() {
   return (
     <section id="contact">
       <div className={styles.contactSection}>
-        <h2 className={styles.contactTitle}>Get in Touch</h2>
-        <form method="POST" onSubmit={onSubmit}>
-          <div className={styles.formSection}>
-            <label className={styles.contactLabel} htmlFor="name">
-              Full Name
-            </label>
-            <input
-              id="name"
-              name="name"
-              placeholder="Full name..."
-              type="text"
-              onChange={(e) => {
-                if (e.currentTarget.validity.patternMismatch) {
-                  e.currentTarget.setCustomValidity(
-                    "Please enter both your name and surname",
-                  );
-                } else {
-                  e.currentTarget.setCustomValidity("");
-                }
-              }}
-              minLength={2}
-              pattern=".*\s+.*"
-              className={styles.contactInput}
-              required
-              disabled={submitted}
-            />
-            <label className={styles.contactLabel} htmlFor="email">
-              Email Address
-            </label>
-            <input
-              id="email"
-              name="email"
-              placeholder="Email address..."
-              type="email"
-              pattern="[^\s@]+@[^\s@]+\.[^\s@]+"
-              onChange={(e) => {
-                if (
-                  e.currentTarget.validity.typeMismatch ||
-                  e.currentTarget.validity.patternMismatch
-                ) {
-                  e.currentTarget.setCustomValidity(
-                    "Please enter a valid email address",
-                  );
-                } else {
-                  e.currentTarget.setCustomValidity("");
-                }
-              }}
-              className={styles.contactInput}
-              required
-              disabled={submitted}
-            />
-            <label className={styles.contactLabel} htmlFor="subject">
-              Subject
-            </label>
-            <input
-              id="subject"
-              name="subject"
-              type="text"
-              placeholder="Subject..."
-              className={styles.contactInput}
-              required
-              disabled={submitted}
-            />
-            <label className={styles.contactLabel} htmlFor="message">
-              Message
-            </label>
-            <textarea
-              id="message"
-              name="message"
-              placeholder="Message..."
-              className={`${styles.contactInput} ${styles.messageInput}`}
-              minLength={15}
-              required
-              disabled={submitted}
-            />
+        <div className={styles.sectionLeft}>
+          <h2 className={styles.contactTitle}>Get in Touch</h2>
+          <div className={styles.availabilityContainer}>
+            <div className={styles.greenCircle}></div>{" "}
+            <p>Open to intern/junior front-end opportunities</p>
           </div>
-          {submitted ? (
-            <h4 className={styles.thankYou}>Message sent, Thank you!</h4>
-          ) : loading === true ? (
-            <button
-              type="submit"
-              className={styles.submitBtn}
-              style={loadingStyle}
+          <p className={styles.belowTitle}>
+            Whether you need me to be part of a team, design a project for you,
+            or assist with any sort of front-end work, i am always open for
+            opportunities.
+          </p>
+        </div>
+        <div className={styles.sectionRight}>
+          <form method="POST" onSubmit={onSubmit}>
+            <div className={styles.formSection}>
+              <label className={styles.contactLabel} htmlFor="name">
+                Full Name
+              </label>
+              <input
+                id="name"
+                name="name"
+                placeholder="Your full name..."
+                type="text"
+                onChange={(e) => {
+                  if (e.currentTarget.validity.patternMismatch) {
+                    e.currentTarget.setCustomValidity(
+                      "Please enter both your name and surname",
+                    );
+                  } else {
+                    e.currentTarget.setCustomValidity("");
+                  }
+                }}
+                minLength={2}
+                pattern=".*\s+.*"
+                className={styles.contactInput}
+                required
+                disabled={submitted}
+              />
+              <label className={styles.contactLabel} htmlFor="email">
+                Email Address
+              </label>
+              <input
+                id="email"
+                name="email"
+                placeholder="you@example.com"
+                type="email"
+                pattern="[^\s@]+@[^\s@]+\.[^\s@]+"
+                onChange={(e) => {
+                  if (
+                    e.currentTarget.validity.typeMismatch ||
+                    e.currentTarget.validity.patternMismatch
+                  ) {
+                    e.currentTarget.setCustomValidity(
+                      "Please enter a valid email address",
+                    );
+                  } else {
+                    e.currentTarget.setCustomValidity("");
+                  }
+                }}
+                className={styles.contactInput}
+                required
+                disabled={submitted}
+              />
+              <label className={styles.contactLabel} htmlFor="subject">
+                Subject
+              </label>
+              <input
+                id="subject"
+                name="subject"
+                type="text"
+                placeholder="Subject..."
+                className={styles.contactInput}
+                required
+                disabled={submitted}
+              />
+              <label className={styles.contactLabel} htmlFor="message">
+                Message
+              </label>
+              <textarea
+                id="message"
+                name="message"
+                placeholder="Message..."
+                className={`${styles.contactInput} ${styles.messageInput}`}
+                minLength={15}
+                required
+                disabled={submitted}
+              />
+            </div>
+            {submitted ? (
+              <h4 className={styles.thankYou}>Message sent, Thank you!</h4>
+            ) : loading === true ? (
+              <button
+                type="submit"
+                className={styles.submitBtn}
+                style={loadingStyle}
+              >
+                Processing...
+              </button>
+            ) : (
+              <button type="submit" className={styles.submitBtn}>
+                Submit
+              </button>
+            )}
+          </form>
+          <p className={styles.beforeEmail}>
+            Or,{" "}
+            <a
+              target="_blank"
+              rel="noopener noreferrer"
+              href="mailto:miguelbaldacchino625@gmail.com"
+              className={styles.email}
             >
-              Processing...
-            </button>
-          ) : (
-            <button type="submit" className={styles.submitBtn}>
-              Submit
-            </button>
-          )}
-        </form>
-        <p className={styles.beforeEmail}>
-          Or,{" "}
-          <a
-            target="_blank"
-            rel="noopener noreferrer"
-            href="mailto:miguelbaldacchino625@gmail.com"
-            className={styles.email}
-          >
-            Email Me
-          </a>
-        </p>
-        {errorMessage != "" ? (
-          <p className={styles.errorMessage}>{errorMessage}</p>
-        ) : undefined}
+              Email Me
+            </a>
+          </p>
+          {errorMessage != "" ? (
+            <p className={styles.errorMessage}>{errorMessage}</p>
+          ) : undefined}
+        </div>
       </div>
     </section>
   );

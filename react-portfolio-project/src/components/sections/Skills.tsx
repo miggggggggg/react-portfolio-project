@@ -24,7 +24,7 @@ function Skills() {
             })}
             onClick={() => setSelectedCategory("Languages")}
           >
-            Languages
+            Fundamentals
           </button>
           <button
             className={classNames(styles.categoryButton, {
@@ -47,6 +47,8 @@ function Skills() {
           {filteredSkills.map((skill) => (
             <Badge
               key={skill.id}
+              svgIcon={skill.svgIcon}
+              imgAlt={skill.imgAlt}
               title={skill.title}
               description={skill.description}
               category={skill.category}

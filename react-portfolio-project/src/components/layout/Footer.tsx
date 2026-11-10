@@ -8,7 +8,7 @@ function Footer() {
           © {new Date().getFullYear()} Miguel Baldacchino · Built with React &
           TypeScript
         </p>
-        <a className={styles.backToTop} href="#hero">
+        <a className={styles.backToTop} href="#">
           Go Back to Top
           <svg
             xmlns="http://www.w3.org/2000/svg"

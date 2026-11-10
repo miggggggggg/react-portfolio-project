@@ -3,6 +3,11 @@
     display: flex;
     flex-direction: column;
     align-items: center;
+     background: radial-gradient(
+    ellipse,
+    rgba(255, 140, 0, 0.233),
+    transparent 80%
+  );
 }
 
 .projectTitle {
@@ -14,7 +19,7 @@
       rgba(255, 255, 255, 0.8) 50%,
       transparent 58%
     ),
-    linear-gradient(135deg, #ffae00, #a54704);
+    linear-gradient(135deg, #ffae00, #e06004);
 
   background-size: 250% 100%, 100% 100%;
   background-position: -150% 0, 0 0;
@@ -38,9 +43,74 @@
   }
 }
 
+.fadeIn{
+  text-align: center;
+  animation: fadeIn 1s ease;
+}
+
+@keyframes fadeIn{
+  0% {
+    opacity:  0;
+  }
+
+  100%{
+    opacity: 1;
+  }
+}
+
+.qualityWrapper{
+  display: flex;
+  justify-content: space-between;
+  width: 70vw;
+}
+
+.qualityContainer{
+  background: orange;
+  box-shadow: 0 0 15px #ffa6009f;
+  border-radius: 15px;
+  color: black;
+  padding: 3px 20px;
+  font-size: var(--font-size-base);
+  animation: qualityBounce 3s ease-in-out infinite alternate;
+}
+
+.qualityContainerInvert{
+  margin: 10px 0;
+  background: orange;
+  box-shadow: 0 0 15px #ffa6009f;
+  border-radius: 15px;
+  color: black;
+  padding: 3px 20px;
+  font-size: var(--font-size-base);
+  animation: qualityBounceInvert 3s ease-in-out infinite alternate;
+}
+
+@keyframes qualityBounce {
+  from {
+    transform: translateY(0);
+  }
+
+  to {
+    transform: translateY(-30px);
+  }
+}
+
+@keyframes qualityBounceInvert {
+  from {
+    transform: translateY(0);
+  }
+
+  to {
+    transform: translateY(30px);
+  }
+}
+
+.quote{
+  font-size: var(--font-size-h4);
+}
 
 .elevatorPitch{
-    margin: 15px;
+    margin: 5px 15px;
     max-width: 70ch;
     font-size: 17px;
     text-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
@@ -55,38 +125,23 @@
     justify-content: space-evenly;
 }
 
-.projectsButton{
-    margin: 10px;
-    border-radius: var(--radius-md);
-    width: 130px;
-    height: 50px;
-    font-size: var(--font-size-base);
-    background: var(--color-hero);
-    color: white;
-    border: none;
-}
-
-.projectsButton:hover{
-    background: var(--color-hero-hover);
-}
-
-.projectsButton:focus-visible{
-    background: var(--color-hero-hover);
-}
-
 .contactButton{
-    margin: 10px;
+    margin: 40px;
     border-radius: var(--radius-md);
     width: 130px;
     height: 50px;
     font-size: var(--font-size-base);
+    letter-spacing: 0.5px;
     background: linear-gradient(135deg, #CC5500,#FF8C00);
     color: white;
+    font-weight: bold;
     border: none;
 }
 
 .contactButton:hover{
-  background: linear-gradient(135deg, #cc5500c2,#ff8c00b6);   
+  background: linear-gradient(135deg, #cc5500e7,#ff8c00ea);  
+  transform: translateY(-5px);
+  transition: transform 0.3s ease-in-out;
 }
 
 .contactButton:focus-visible{
@@ -131,14 +186,6 @@
   justify-content: flex-end;
 }
 
-.heroImage {
-    width: 350px;
-    height: 300px;
-    object-fit: cover;
-    border-radius: var(--radius-md);
-    box-shadow: 0 8px 24px rgba(15, 23, 42, 0.15);
-}
-
 @media (min-width: 768px){
   .elevatorPitch{
     margin: 30px;
@@ -164,7 +211,7 @@
 
 @media (min-width: 1024px){
   .elevatorPitch{
-    margin: 30px;
+    margin: 50px;
     max-width: 70ch;
     font-size: var(--font-size-base);
   }
@@ -183,5 +230,15 @@
     width: 200px;
     height: 50px;
     font-size: var(--font-size-h5);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .projectTitle {
+    animation: none;
+  }
+
+  .fadeIn{
+    animation: none;
   }
 }

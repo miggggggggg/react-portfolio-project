@@ -11,10 +11,9 @@
   padding: 1rem 1rem;
   z-index: 1000;
 
-  background: #00000000;
+  background: #00000071;
   border-bottom: 1px solid #ff910057;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.12);
-  backdrop-filter: blur(8px);
 }
 
 .heroLink {

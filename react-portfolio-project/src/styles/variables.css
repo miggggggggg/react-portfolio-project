@@ -1,9 +1,9 @@
 :root{
     --color-bg: #1C1C1C;
-    --color-surface: linear-gradient(135deg, #1C3155, #172641);
+    --color-surface: linear-gradient(135deg, #27467a, #132036);
     --color-primary: #ffa500;
     --color-primary-hover: #ffa600b2;
-    --color-hero: linear-gradient(135deg, #FF8C00, #CC5500);
+    --color-hero: linear-gradient(135deg, #FF8C00, #ec6504);
     --color-hero-hover: linear-gradient(135deg, #E67E00, #A84300);
     --color-heading: linear-gradient(90deg, #FFB347, #FF6B35);
     --color-accent: #8FA6CC;
