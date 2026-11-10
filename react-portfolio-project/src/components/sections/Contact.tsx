@@ -1,5 +1,6 @@
 import styles from "./Contact.module.css";
 import { useState, type FormEvent } from "react";
+import { Turnstile } from "@marsidev/react-turnstile";
 
 function Contact() {
   const loadingStyle = {
@@ -123,6 +124,7 @@ function Contact() {
                 disabled={submitted}
               />
             </div>
+            <Turnstile siteKey={import.meta.env.VITE_TURNSTILE_SITE_KEY} />
             {submitted ? (
               <h4 className={styles.thankYou}>Message sent, Thank you!</h4>
             ) : loading === true ? (
