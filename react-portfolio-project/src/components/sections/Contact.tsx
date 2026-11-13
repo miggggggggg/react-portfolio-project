@@ -15,7 +15,7 @@ function Contact() {
     try {
       e.preventDefault();
       setLoading(true);
-      const response = await fetch("https://formspree.io/f/mvgrdglz", {
+      const response = await fetch("/api/submit", {
         method: "POST",
         body: new FormData(e.currentTarget),
         headers: { Accept: "application/json" },
@@ -124,22 +124,24 @@ function Contact() {
                 disabled={submitted}
               />
             </div>
-            <Turnstile siteKey={import.meta.env.VITE_TURNSTILE_SITE_KEY} />
-            {submitted ? (
-              <h4 className={styles.thankYou}>Message sent, Thank you!</h4>
-            ) : loading === true ? (
-              <button
-                type="submit"
-                className={styles.submitBtn}
-                style={loadingStyle}
-              >
-                Processing...
-              </button>
-            ) : (
-              <button type="submit" className={styles.submitBtn}>
-                Submit
-              </button>
-            )}
+            <div className={styles.formBottom}>
+              <Turnstile siteKey={import.meta.env.VITE_TURNSTILE_SITE_KEY} />
+              {submitted ? (
+                <h4 className={styles.thankYou}>Message sent, Thank you!</h4>
+              ) : loading === true ? (
+                <button
+                  type="submit"
+                  className={styles.submitBtn}
+                  style={loadingStyle}
+                >
+                  Processing...
+                </button>
+              ) : (
+                <button type="submit" className={styles.submitBtn}>
+                  Submit
+                </button>
+              )}
+            </div>
           </form>
           <p className={styles.beforeEmail}>
             Or,{" "}

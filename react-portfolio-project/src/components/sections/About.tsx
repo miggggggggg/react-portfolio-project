@@ -1,20 +1,18 @@
 import styles from "./About.module.css";
-import AboutCard from "../ui/AboutCard";
-import StrengthCard from "../ui/StrengthCard";
 
 function About() {
   return (
     <section id="about">
       <div className={styles.aboutSection}>
+        <img
+          src="dev_pfp.jpg"
+          className={styles.devPfp}
+          alt="A picture of Miguel Baldacchino"
+        />
         <span>
           <em>ALWAYS IMPROVING</em>
         </span>
         <div className={styles.titleContainer}>
-          <img
-            src="dev_pfp.jpg"
-            className={styles.devPfp}
-            alt="A picture of Miguel Baldacchino"
-          />
           <h2 className={styles.aboutTitle}>
             My Journey, <i>so far...</i>
           </h2>
@@ -74,7 +72,7 @@ function About() {
               </div>
             </div>
             <div className={styles.cardMain}>
-              <h3>Discovering a hobby..</h3>
+              <h3 className={styles.cardTitle}>Discovering a hobby..</h3>
               <span className={styles.titleAccent} aria-hidden="true" />
               <p>
                 I first discovered coding while I was still in secondary school,
@@ -136,7 +134,7 @@ function About() {
               </div>
             </div>
             <div className={styles.cardMain}>
-              <h3>Expanding My Skills</h3>
+              <h3 className={styles.cardTitle}>Expanding My Skills</h3>
               <span className={styles.titleAccent} aria-hidden="true" />
               <p>
                 I spent the rest of 2025 expanding my foundations and
@@ -160,7 +158,6 @@ function About() {
                 aria-label="Stage 3 grown plant"
                 role="img"
               >
-                {/* Main stem */}
                 <path
                   d="M24 36 C24 27 24 17 24 5"
                   stroke="#E88A35"
@@ -168,15 +165,12 @@ function About() {
                   strokeLinecap="round"
                 />
 
-                {/* Branches */}
                 <g stroke="#E88A35" strokeWidth="1.3" strokeLinecap="round">
                   <path d="M24 15 C20 13 18 11 16 8" />
                   <path d="M24 21 C28 19 30 16 32 13" />
                   <path d="M24 27 C20 25 17 23 14 22" />
                   <path d="M24 31 C28 29 31 27 34 26" />
                 </g>
-
-                {/* Leaves */}
                 <g fill="#E88A35">
                   <path d="M24 12 C17 3 11 7 15 13 C18 16 22 15 24 12Z" />
                   <path d="M25 17 C29 7 37 7 36 13 C35 18 29 19 25 17Z" />
@@ -197,7 +191,7 @@ function About() {
           </div>
 
           <div className={styles.cardMain}>
-            <h3>Passion & Goals</h3>
+            <h3 className={styles.cardTitle}>Passion & Goals</h3>
             <span className={styles.titleAccent} aria-hidden="true" />
             <p>
               I'm particularly passionate about React, TypeScript, clean code,
@@ -207,43 +201,6 @@ function About() {
             </p>
           </div>
         </div>
-        {/*
-        <div className={styles.cardSection}> 
-          <AboutCard
-            title="Discovering Front-end"
-            description="I first discovered coding while I was still in secondary school, and I
-          quickly fell in love with it. In
-          early 2025, I started exploring
-          the fundamentals of front-end development, and I soon realised
-          that building for the web was the direction I wanted to pursue."
-          ></AboutCard>
-          <AboutCard
-            title="Expanding My Skills"
-            description="I spent the rest of 2025 expanding my foundations and experimenting with different
-            technologies, before taking my learning to another level in 2026
-          through a range of courses and hands-on projects."
-          ></AboutCard>
-          <AboutCard
-            title="Passion & Goals"
-            description="I'm particularly passionate about React, TypeScript, clean code, and
-            building responsive, accessible user interfaces.
-              My long-term goal is to continuously push my skills further and
-              become one of the strongest front-end developers I can be."
-          ></AboutCard>
-          
-        </div>
-        */}
-        {/* 
-        <h4 className={styles.strengthsTitle}>Key Strengths</h4>
-        <div className={styles.strengthWrapper}>
-          <StrengthCard strength="Clean Code Enthusiast"></StrengthCard>
-          <StrengthCard strength="Component-Driven Design"></StrengthCard>
-          <StrengthCard strength="React & TypeScript"></StrengthCard>
-          <StrengthCard strength="Responsive & Accessible UI"></StrengthCard>
-          <StrengthCard strength="Problem-Solving Mindset"></StrengthCard>
-          <StrengthCard strength="Continuous Learning & Improvement"></StrengthCard>
-        </div>
-        */}
       </div>
     </section>
   );

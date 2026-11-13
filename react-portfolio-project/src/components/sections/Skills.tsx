@@ -32,7 +32,7 @@ function Skills() {
             })}
             onClick={() => setSelectedCategory("Frameworks")}
           >
-            Frameworks/Libraries
+            Frameworks
           </button>
           <button
             className={classNames(styles.categoryButton, {

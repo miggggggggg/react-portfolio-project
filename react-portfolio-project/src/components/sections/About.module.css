@@ -28,8 +28,14 @@ span em{
     border-radius: 50%;
     border: 2px solid var(--color-primary);
     box-shadow: 0 0 15px var(--color-primary);
-    position: absolute;
-    left: 34.5%;
+    margin: 15px;
+}
+
+.devPfp:hover{
+    transform: translateY(-5px);
+    border: 2px solid #ff9100;
+    box-shadow: 0 0 18px #ff9100;
+    transition: transform 0.3s ease-in-out, border 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
 }
 
 .aboutTitle{
@@ -39,6 +45,7 @@ span em{
 
 .underTitle{
     color: var(--color-text-muted);
+    text-align: center;
 }
 
 h2 i{
@@ -47,18 +54,18 @@ h2 i{
 
 .cardWrapper{
     display: flex;
+    flex-direction: column;
     justify-content: space-between;
     gap: var(--space-2xl);
-    margin: var(--space-xl);
+    margin: var(--space-xl) 0;
 }
 
 .aboutCard{
     background: #242424;
     border: 1px solid #ffa60086;
     border-radius: 20px;
-    padding: 15px var(--space-xl);
-    margin: var(--space-sm);
-    min-width: 768px;
+    padding: 15px var(--space-md);
+    margin: var(--space-sm) var(--space-md);
 }
 
 .aboutCard:hover{
@@ -74,7 +81,7 @@ h2 i{
 
 .chapter{
     color: var(--color-primary);
-    font-size: var(--font-size-h6);
+    font-size: 13px;
     margin-top: var(--space-sm);
 }
 
@@ -82,6 +89,10 @@ h2 i{
     border: 1px solid #ffa60086;
     border-radius: 15px;
     box-shadow: 0 0 15px #ffa6009f;
+}
+
+.cardTitle{
+    font-size: var(--font-size-h4);
 }
 
 .cardMain{
@@ -99,54 +110,59 @@ h2 i{
 
 .cardMain p{
     color: var(--color-text-muted);
-    font-size: var(--font-size-h5);
+    font-size: var(--font-size-base);
     max-width: 40ch;
     margin: var(--space-md) 0;
     text-align: left;
 }
 
 
-.cardSection{
-    display: flex;
-    justify-content: space-evenly;
-    flex-direction: column;
-}
-
-.strengthsTitle{
-    margin: 0.5rem 0;
-    color: #e99649;
-    font-size: var(--font-size-h5);
-}
-
-.strengthWrapper{
-    display: grid;
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-    gap: 0 1rem;
-    align-items: center;
-    justify-items: center;
-    width: 75%;
-}
-
 @media (min-width: 768px){
-    .strengthsTitle{
-        font-size: var(--font-size-h4);
+    .aboutTitle{
+        font-size: var(--font-size-h3);
+    }
+
+    .cardTitle{
+        font-size: var(--font-size-h3);
+    }
+
+    .cardMain p{
+        font-size: var(--font-size-h5);
     }
 }
 
-@media (min-width: 1312px){
+@media (min-width: 1028px){
     .aboutTitle{
         font-size: var(--font-size-h2);
     }
 
-    .cardSection{
-        flex-direction: row;
-    }
-    
-    .strengthWrapper{
-        grid-template-columns: repeat(3, minmax(0, 1fr));
+    .cardWrapper{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    margin: var(--space-xl);
     }
 
-    .strengthsTitle{
-        font-size: var(--font-size-h4);
+    .aboutCard{
+        padding: 15px var(--space-xl);
+        margin: var(--space-sm);
+    }
+
+    .chapter{
+        font-size: var(--font-size-h6);
+    }
+
+    .cardTitle{
+        font-size: var(--font-size-h3);
+    }
+
+    .cardMain p{
+        font-size: var(--font-size-h5);
+    }
+}
+
+@media (min-width: 1366px){
+    .aboutCard{
+        min-width: 768px;
     }
 }
