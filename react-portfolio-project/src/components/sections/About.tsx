@@ -5,7 +5,7 @@ function About() {
     <section id="about">
       <div className={styles.aboutSection}>
         <img
-          src="dev_pfp.jpg"
+          src="dev_pfp.webp"
           className={styles.devPfp}
           alt="A picture of Miguel Baldacchino"
         />
