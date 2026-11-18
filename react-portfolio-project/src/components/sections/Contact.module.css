@@ -84,7 +84,7 @@
     height: 30px;
     padding: 0.65rem 0.75rem;
 
-    background-color: #354765;
+    background: linear-gradient(135deg, #1d1d8098, #010168c7);
     color: var(--color-text-main);
 
     border: 1px solid #263483;
@@ -97,14 +97,14 @@
 }
 
 .contactInput:hover{
-    border-color: #ffb247ad;
-    box-shadow: 0 0 5px #ffb247c5;
+    border-color: #5947ffad;
+    box-shadow: 0 0 5px #4759ffc5;
 }
 
 .contactInput:focus {
     outline: none;
-    border-color: #FFB347;
-    box-shadow: 0 0 5px #FFB347;
+    border-color: #5947ff;
+    box-shadow: 0 0 5px #4759ff;
 }
 
 .contactInput::placeholder {
