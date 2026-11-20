@@ -1,4 +1,4 @@
-
+{/*
 interface Env {
   TURNSTILE_SECRET_KEY: string;
 }
@@ -7,7 +7,7 @@ export default {
   async fetch(request: Request, env: Env): Promise<Response> {
     const url = new URL(request.url);
 
-    if (url.pathname !== "/api/submit" || request.method !== "POST") {
+    if (url.pathname !== "/api/contact" || request.method !== "POST") {
       return Response.json(
         { error: "Not found" },
         { status: 404 }
@@ -85,3 +85,4 @@ export default {
     }
   },
 };
+*/}

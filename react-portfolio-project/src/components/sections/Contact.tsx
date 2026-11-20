@@ -1,5 +1,5 @@
 import styles from "./Contact.module.css";
-import { useState, type FormEvent } from "react";
+import { useState, useRef, type FormEvent } from "react";
 import { Turnstile } from "@marsidev/react-turnstile";
 
 function Contact() {
@@ -10,8 +10,12 @@ function Contact() {
   const [submitted, setSubmitted] = useState(false);
   const [loading, setLoading] = useState(false);
   const [errorMessage, setErrorMessage] = useState("");
+  const [token, setToken] = useState("");
+  const [status, setStatus] = useState("idle"); // idle | sending | sent | error
+  const turnstileRef = useRef(null);
 
-  async function onSubmit(e: FormEvent<HTMLFormElement>) {
+  {
+    /*async function onSubmit(e: FormEvent<HTMLFormElement>) {
     try {
       e.preventDefault();
       setLoading(true);
@@ -31,6 +35,37 @@ function Contact() {
     } finally {
       setLoading(false);
     }
+  }
+    */
+  }
+
+  async function onSubmit(e: FormEvent<HTMLFormElement>) {
+    e.preventDefault();
+    if (!token) return;
+    setStatus("sending");
+    const formData = new FormData(e.currentTarget);
+    const res = await fetch("/api/contact", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({
+        name: formData.get("name"),
+        email: formData.get("email"),
+        message: formData.get("message"),
+        turnstileToken: token,
+      }),
+    });
+    if (res.ok) {
+      setStatus("sent");
+      e.currentTarget.reset();
+    } else {
+      setStatus("error");
+
+      console.error("HTTP Status:", res.status);
+      console.error("Response:", await res.text());
+    }
+    // Reset widget because Turnstile tokens are single-use
+    turnstileRef.current?.reset();
+    setToken("");
   }
 
   return (
@@ -125,20 +160,23 @@ function Contact() {
               />
             </div>
             <div className={styles.formBottom}>
-              <Turnstile siteKey={import.meta.env.VITE_TURNSTILE_SITE_KEY} />
+              <Turnstile
+                ref={turnstileRef}
+                siteKey={import.meta.env.VITE_TURNSTILE_SITE_KEY}
+                onSuccess={(newToken) => setToken(newToken)}
+                onExpire={() => setToken("")}
+                onError={() => setToken("")}
+              />
+
               {submitted ? (
                 <h4 className={styles.thankYou}>Message sent, Thank you!</h4>
-              ) : loading === true ? (
+              ) : (
                 <button
                   type="submit"
+                  disabled={!token || status === "sending"}
                   className={styles.submitBtn}
-                  style={loadingStyle}
                 >
-                  Processing...
-                </button>
-              ) : (
-                <button type="submit" className={styles.submitBtn}>
-                  Submit
+                  {status === "sending" ? "Sending..." : "Send Message"}
                 </button>
               )}
             </div>
