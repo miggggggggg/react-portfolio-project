@@ -1,71 +1,70 @@
 import styles from "./Contact.module.css";
 import { useState, useRef, type FormEvent } from "react";
-import { Turnstile } from "@marsidev/react-turnstile";
+import { Turnstile, type TurnstileInstance } from "@marsidev/react-turnstile";
 
 function Contact() {
-  const loadingStyle = {
-    cursor: "not-allowed",
-    background: "linear-gradient(135deg, #ff8c00bd, #cc5500b2)",
-  };
   const [submitted, setSubmitted] = useState(false);
-  const [loading, setLoading] = useState(false);
   const [errorMessage, setErrorMessage] = useState("");
   const [token, setToken] = useState("");
   const [status, setStatus] = useState("idle"); // idle | sending | sent | error
-  const turnstileRef = useRef(null);
-
-  {
-    /*async function onSubmit(e: FormEvent<HTMLFormElement>) {
-    try {
-      e.preventDefault();
-      setLoading(true);
-      const response = await fetch("/api/submit", {
-        method: "POST",
-        body: new FormData(e.currentTarget),
-        headers: { Accept: "application/json" },
-      });
-
-      if (response.ok) {
-        setSubmitted(true);
-      } else {
-        setErrorMessage("Submission failed. Please email me directly.");
-      }
-    } catch {
-      setErrorMessage("Network error. Please try again later.");
-    } finally {
-      setLoading(false);
-    }
-  }
-    */
-  }
+  const turnstileRef = useRef<TurnstileInstance | null>(null);
 
   async function onSubmit(e: FormEvent<HTMLFormElement>) {
     e.preventDefault();
-    if (!token) return;
-    setStatus("sending");
-    const formData = new FormData(e.currentTarget);
-    const res = await fetch("/api/contact", {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({
-        name: formData.get("name"),
-        email: formData.get("email"),
-        message: formData.get("message"),
-        turnstileToken: token,
-      }),
-    });
-    if (res.ok) {
-      setStatus("sent");
-      e.currentTarget.reset();
-    } else {
-      setStatus("error");
 
-      console.error("HTTP Status:", res.status);
-      console.error("Response:", await res.text());
+    const form = e.currentTarget;
+    const formData = new FormData(form);
+
+    if (!token) return;
+
+    setStatus("sending");
+
+    try {
+      const res = await fetch("/api/contact", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          name: formData.get("name"),
+          email: formData.get("email"),
+          message: formData.get("message"),
+          turnstileToken: token,
+        }),
+      });
+
+      if (!res.ok) {
+        console.error("Worker Status:", res.status);
+        console.error("Worker Response:", await res.text());
+        setStatus("error");
+        return;
+      }
+      const response = await fetch("https://formspree.io/f/mvgrdglz", {
+        method: "POST",
+        body: formData,
+        headers: { Accept: "application/json" },
+      });
+
+      if (!response.ok) {
+        console.error("Formspree Status:", response.status);
+        console.error("Formspree Response:", await response.text());
+
+        setErrorMessage("Submission failed. Please email me directly.");
+        setStatus("error");
+        return;
+      }
+      setSubmitted(true);
+      setStatus("sent");
+      form.reset();
+    } catch (error) {
+      console.error("Submission error:", error);
+      setErrorMessage("Network error. Please try again later.");
+      setStatus("error");
+    } finally {
+      if (turnstileRef.current) {
+        turnstileRef.current.reset();
+      }
+
+      setToken("");
     }
-    // Reset widget because Turnstile tokens are single-use
-    turnstileRef.current?.reset();
-    setToken("");
   }
 
   return (
