@@ -1,0 +1,73 @@
+
+interface Env {
+  TURNSTILE_SECRET_KEY: string;
+}
+
+interface ContactRequest {
+  name: string;
+  email: string;
+  message: string;
+  turnstileToken: string;
+}
+
+interface TurnstileResponse {
+  success: boolean;
+  "error-codes"?: string[];
+}
+
+export const onRequestPost = async ({
+  request,
+  env,
+}: {
+  request: Request;
+  env: Env;
+}) => {
+  try {
+    const { name, turnstileToken } =
+      (await request.json()) as ContactRequest;
+
+    if (!turnstileToken) {
+      return Response.json(
+        { error: "Missing Turnstile token" },
+        { status: 400 },
+      );
+    }
+
+    const verifyRes = await fetch(
+      "https://challenges.cloudflare.com/turnstile/v0/siteverify",
+      {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          secret: env.TURNSTILE_SECRET_KEY,
+          response: turnstileToken,
+          remoteip: request.headers.get("CF-Connecting-IP"),
+        }),
+      },
+    );
+
+    const outcome =
+      (await verifyRes.json()) as TurnstileResponse;
+
+    if (!outcome.success) {
+      return Response.json(
+        {
+          error: "Bot verification failed",
+          codes: outcome["error-codes"],
+        },
+        { status: 403 },
+      );
+    }
+
+    // Verification passed! Send your email here.
+
+    return Response.json({ ok: true, sender: name });
+  } catch (err) {
+    console.error("Contact endpoint error:", err);
+
+    return Response.json(
+      { error: "Invalid request payload" },
+      { status: 400 },
+    );
+  }
+};
