@@ -18,7 +18,8 @@
 .badge:hover{
     transform: translateY(-5px);
     transition: 0.2s transform ease-in-out, 0.2s border ease-in-out;
-    border: 1px solid #ffa60062;
+    border: 1px solid #ffa6008f;
+    box-shadow: 0 0 5px #ffa6008f;
 }
 
 .svgContainer{

@@ -139,6 +139,8 @@
 .submitBtn:hover{
     background: var(--color-hero-hover);
     cursor: pointer;
+    transform: translateY(-3px);
+    transition: 0.2s transform ease-in-out;
 }
 
 .thankYou{
